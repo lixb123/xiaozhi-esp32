@@ -647,7 +647,11 @@ void Application::Start() {
 
     // Print heap stats
     SystemInfo::PrintHeapStats();
-    
+    ESP_LOGI(TAG, "Application started successfully, device state: %s", STATE_STRINGS[device_state_]);
+
+    std::string wake_word = "介绍一下你自己";
+    Application::GetInstance().WakeWordInvoke(wake_word);
+
     // Enter the main event loop
     MainEventLoop();
 }
